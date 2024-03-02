@@ -32,14 +32,14 @@ Siga estas instruções para rodar o projeto em sua máquina:
 
   4. Instale as dependências:
 
-    ```bash
+  ```bash
     npm install
-    ```
+  ```
 
 5. Inicie o projeto:
 
-   ```bash
-   npm run dev
-   ```
+  ```bash
+    npm run dev
+  ```
 
 Agora, a aplicação estará disponível localmente em [http://localhost:5173](http://localhost:5173).# Desafio-Be-FrontEnd
