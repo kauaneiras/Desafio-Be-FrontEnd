@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BeLogo from "../assets/images/BeLogo.png";
+import BeLogo from "../assets/images/BeLogo.svg";
 
 const Navbar: React.FC = () => {
   return (
