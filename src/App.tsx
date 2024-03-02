@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, } from 'react-router-dom';
-import EmployerPage from './pages/employer-page';
+import EmployerPage from './pages/employee-page';
 
 const App: React.FC = () => {
   return (

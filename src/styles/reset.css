@@ -1,5 +1,5 @@
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -39,4 +39,19 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+h1 { 
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+}
+h2 { 
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+} 
+h3 { 
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
 }
