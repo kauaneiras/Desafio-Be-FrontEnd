@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { Container } from '../styles/base.tsx';
+import { Container, Content, StyledContent, StyledList } from '../styles/employee-page-styles.tsx';
 import { getData, employees } from '../services/connection.tsx';
 import Navbar from '../components/navbar-component.tsx';
 import SearchBar from '../components/searchbar-component.tsx';
@@ -23,7 +22,7 @@ const EmployerPage: React.FC = () => {
   }, []);
 
   const filteredData = filterEmployees(data, searchText);
-  
+
   return (
     <Container>
       <Navbar />
@@ -46,47 +45,3 @@ const EmployerPage: React.FC = () => {
 };
 
 export default EmployerPage;
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 95%;
-  overflow-y: hidden;
-  overflow-x: hidden;
-`;
-
-const StyledContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  overflow-y: auto;
-  background-color: white;
-
-  &::-webkit-scrollbar {
-    width: 0.5em;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-  }
-
-  &:hover {
-    scrollbar-width: thin;
-  }
-
-  &::-webkit-scrollbar {
-    width: 0.5em;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: transparent;
-  }
-`;
-
-const StyledList = styled.ul`
-  width: 100%;
-  max-height: 500px;
-`;
