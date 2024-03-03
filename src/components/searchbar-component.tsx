@@ -2,11 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import search from "../assets/icons/search.svg";
 
-const SearchBar: React.FC = () => {
+interface SearchBarProps {
+  searchText: string;
+  setSearchText: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ searchText, setSearchText }) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value);
+  };
+
   return (
     <Container>
       <Text>Funcionários</Text>
-      <Input type="text" placeholder="Pesquisar" />
+      <InputDiv>
+          <Input type="text" placeholder="Pesquisar" value={searchText} onChange={handleInputChange}/>
+          <Img src={search} alt="search"/>
+      </InputDiv>
     </Container>
   );
 };
@@ -23,15 +35,45 @@ const Container = styled.div`
     margin-bottom: 20px;
 `;
 
-const Input = styled.input`
-    width: 300px;
-    height: 40px;
-    border: 1px solid #00000033;
+const InputDiv = styled.div`
+    display: flex;
+    align-items: center;
+    width: 287px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #DFDFDF;
     border-radius: 5px;
-    padding: 10px;
+    padding: 12px, 16px, 12px, 16px;
     font-size: 16px;
+    background-color: white;
+`;
+
+const Input = styled.input`
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin-left: 15px;
+    padding: 12px, 16px, 12px, 16px;
+    font-size: 16px;
+    background-color: transparent;
     outline: none;
-    box-shadow: 0px 2px 8px 0px #00000033;
+
+    &::placeholder {
+        color: #9E9E9E;
+    }
+
+    &:focus {
+        &::placeholder {
+            color: #000;
+        }
+    }
+`;
+
+const Img = styled.img`
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    cursor: pointer;
 `;
 
 const Text = styled.h1`

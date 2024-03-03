@@ -8,10 +8,11 @@ import { Employee } from '../interfaces/employee-interface.tsx';
 import EmployeeTitles from '../components/employee-titles-component.tsx';
 import EmployerCard from '../components/employee-card-component.tsx';
 import ModalEmp from '../components/employee-modal.tsx';
-
+import { filterEmployees } from '../utils/search-filter-utils.ts';
 
 const EmployerPage: React.FC = () => {
   const [data, setData] = useState<Employee[]>([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,15 +22,17 @@ const EmployerPage: React.FC = () => {
     fetchData();
   }, []);
 
+  const filteredData = filterEmployees(data, searchText);
+  
   return (
     <Container>
       <Navbar />
-      <SearchBar />
+      <SearchBar searchText={searchText} setSearchText={setSearchText} />
       <Content>
+        <EmployeeTitles />
         <StyledContent>
-          <EmployeeTitles />
           <StyledList>
-            {data.map((employee) => (
+            {filteredData.map((employee) => (
               <React.Fragment key={employee.id}>
                 <EmployerCard key={employee.id} employee={employee} />
                 <ModalEmp employee={employee} />
@@ -42,12 +45,11 @@ const EmployerPage: React.FC = () => {
   );
 };
 
-
 export default EmployerPage;
-
 
 const Content = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 95%;
   overflow-y: hidden;
