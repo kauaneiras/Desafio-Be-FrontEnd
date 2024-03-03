@@ -28,15 +28,13 @@ const StyledContent = styled.div`
   width: 100%;
   overflow-y: auto;
   background-color: white;
-
+  border-radius: 0px 0px 8px 8px;
   &::-webkit-scrollbar {
     width: 0.05em;
   }
-
   &::-webkit-scrollbar-thumb {
     background-color: transparent;
   }
-
   &:hover {
     scrollbar-width: thin;
   }

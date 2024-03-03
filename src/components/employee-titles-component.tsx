@@ -10,7 +10,7 @@ const EmployeeTitles: React.FC = () => {
             <Title>DATA DE ADMISSÃO</Title>
             <Title>TELEFONE</Title>
             <DotContainer>
-            <Dot/>
+                <Dot/>
             </DotContainer>
         </Titles>
     );
