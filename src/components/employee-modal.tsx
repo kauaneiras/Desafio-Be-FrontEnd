@@ -44,24 +44,26 @@ const ModalEmp: React.FC<ModalEmpProps> = ({ employee }) => {
   const closeModal = () => {setShowModal(false); setIsModalOpen(false);};
 
   return (
-    <ContainerClosed showModal={showModal}>
-      <ContentClosed>
-        <Container>
-          <Image src={employee.image} alt={employee.name} />
-        </Container>
-        <Container>
-          <Text>{employee.name}</Text>
-        </Container>
-        <Container>
-         {isModalOpen ? (
-            <OpenCloseButton src={CloseIcon} onClick={closeModal} />
-          ) : (
-            <OpenCloseButton src={OpenIcon} onClick={openModal} />
-          )}
-        </Container>
-      </ContentClosed>
-      {showModal && <Modal onClose={closeModal} employee={employee} />}
-    </ContainerClosed>
+    <React.Fragment>
+      <ContainerClosed>
+        <ContentClosed>
+          <Container>
+            <Image src={employee.image} alt={employee.name} />
+          </Container>
+          <Container>
+            <Text>{employee.name}</Text>
+          </Container>
+          <Container>
+          {isModalOpen ? (
+              <OpenCloseButton src={CloseIcon} onClick={closeModal} />
+            ) : (
+              <OpenCloseButton src={OpenIcon} onClick={openModal} />
+            )}
+          </Container>
+        </ContentClosed>
+        {showModal && <Modal onClose={closeModal} employee={employee} />}
+      </ContainerClosed>
+    </React.Fragment>
   );
 };
 

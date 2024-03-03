@@ -1,5 +1,4 @@
-import styled, {keyframes, css} from 'styled-components';
-import { ContainerClosedProps } from '../interfaces/containerclosedprops-interface.tsx';
+import styled, {keyframes} from 'styled-components';
 
 const slideIn = keyframes`
   from {height: 0;}
@@ -19,7 +18,7 @@ const ContainerOpen = styled.div`
   }
 `;
 
-const ContainerClosed = styled.div<ContainerClosedProps>`
+const ContainerClosed = styled.div`
   display: none;
   flex-direction: column; 
   justify-content: space-between;
@@ -29,9 +28,7 @@ const ContainerClosed = styled.div<ContainerClosedProps>`
     display: flex;
   }
 
-  ${({ showModal }) => showModal && css`
-    box-shadow: none; 
-  `}
+
 `;
 
 const ContentClosed = styled.div`
