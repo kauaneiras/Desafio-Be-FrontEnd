@@ -1,22 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import search from "../assets/icons/search.svg";
 
 const SearchBar: React.FC = () => {
   return (
-    <Search>
-      <Input type="text" placeholder="Search" />
-    </Search>
+    <Container>
+      <Text>Funcionários</Text>
+      <Input type="text" placeholder="Pesquisar" />
+    </Container>
   );
 };
 
-
 export default SearchBar;
 
-const Search = styled.div`
+const Container = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    height: 100px;
+    width: 95%;
+    margin-top: 100px;
+    margin-bottom: 20px;
 `;
 
 const Input = styled.input`
@@ -28,4 +32,12 @@ const Input = styled.input`
     font-size: 16px;
     outline: none;
     box-shadow: 0px 2px 8px 0px #00000033;
+`;
+
+const Text = styled.h1`
+    color: black;
+    width: 20%; 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 `;
