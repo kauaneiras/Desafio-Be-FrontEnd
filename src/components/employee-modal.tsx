@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import { ContainerOpen, ContainerClosed, ContentOpen, ContentClosed, OpenButton, CloseButton, Text, Image } from '../styles/employee-modal-styles';
+import { ContainerOpen, ContainerClosed, ContentOpen, ContentClosed, OpenCloseButton, Text, Image, Container, Title, ContainerText } from '../styles/employee-modal-styles';
 import { Employee } from "../interfaces/employee-interface";
+import OpenIcon from '../assets/icons/open.svg';
+import CloseIcon from '../assets/icons/close.svg';
+import { formatPhone } from '../utils/format-phone-utils';
+import { formatDate } from '../utils/format-date-utils';
 
 interface ModalProps {
   onClose: () => void;
@@ -11,14 +15,22 @@ interface ModalEmpProps {
   employee: Employee;
 }
 
-const Modal: React.FC<ModalProps> = ({ onClose, employee }) => {
+const Modal: React.FC<ModalProps> = ({ employee }) => {
   return (
     <ContainerOpen>
       <ContentOpen>
-        <CloseButton onClick={onClose}>&times;</CloseButton>
-        <Text>Cargo {employee.job}</Text>
-        <Text>Data de admissão {employee.admission_date}</Text>
-        <Text>Telefone {employee.phone}</Text>
+        <ContainerText>
+          <Title>Cargo</Title>
+          <Text>{employee.job}</Text>
+        </ContainerText>
+        <ContainerText>
+          <Title>Data de admissão</Title>
+          <Text>{formatDate(employee.admission_date)}</Text>
+        </ContainerText>
+        <ContainerText>
+          <Title>Telefone</Title>
+          <Text>{formatPhone(employee.phone)}</Text>
+        </ContainerText>
       </ContentOpen>
     </ContainerOpen>
   );
@@ -26,15 +38,27 @@ const Modal: React.FC<ModalProps> = ({ onClose, employee }) => {
 
 const ModalEmp: React.FC<ModalEmpProps> = ({ employee }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const openModal = () => {setShowModal(true);};
-  const closeModal = () => {setShowModal(false);};
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const openModal = () => {setShowModal(true); setIsModalOpen(true);};
+  const closeModal = () => {setShowModal(false); setIsModalOpen(false);};
 
   return (
-    <ContainerClosed>
+    <ContainerClosed showModal={showModal}>
       <ContentClosed>
-        <Image src={employee.image} alt={employee.name} />
-        <Text>{employee.name}</Text>
-        <OpenButton onClick={openModal}>Open</OpenButton>
+        <Container>
+          <Image src={employee.image} alt={employee.name} />
+        </Container>
+        <Container>
+          <Text>{employee.name}</Text>
+        </Container>
+        <Container>
+         {isModalOpen ? (
+            <OpenCloseButton src={CloseIcon} onClick={closeModal} />
+          ) : (
+            <OpenCloseButton src={OpenIcon} onClick={openModal} />
+          )}
+        </Container>
       </ContentClosed>
       {showModal && <Modal onClose={closeModal} employee={employee} />}
     </ContainerClosed>
