@@ -14,9 +14,12 @@ const Nav = styled.nav`
 const Logo = styled.img`
     width: 44px;
     height: 35px; 
-    margin-left: 32px;
+    margin-left: 2%;
     padding: 10px;
     gap: 10px;
+    @media (max-width: 768px) {
+        margin-left: 1%;
+    }
 `;
 
 export { Nav, Logo };
