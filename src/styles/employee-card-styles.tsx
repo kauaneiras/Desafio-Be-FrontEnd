@@ -35,11 +35,11 @@ const ContainerImg = styled.div`
 `;
 
 const Name = styled.h3`
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: black;
-    width: 28%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: black;
+  width: 28%;
 `;
 
 export { StyledListItem, StyledImage, Text, ContainerImg, Name };
