@@ -7,6 +7,7 @@ import SearchBar from '../components/searchbar-component.tsx';
 import { Employee } from '../interfaces/employee-interface.tsx';
 import EmployeeTitles from '../components/employee-titles-component.tsx';
 import EmployerCard from '../components/employee-card-component.tsx';
+import ModalEmp from '../components/employee-modal.tsx';
 
 
 const EmployerPage: React.FC = () => {
@@ -29,7 +30,10 @@ const EmployerPage: React.FC = () => {
           <EmployeeTitles />
           <StyledList>
             {data.map((employee) => (
-              <EmployerCard key={employee.id} employee={employee} />
+              <React.Fragment key={employee.id}>
+                <EmployerCard key={employee.id} employee={employee} />
+                <ModalEmp employee={employee} />
+              </React.Fragment>
             ))}
           </StyledList>
         </StyledContent>
