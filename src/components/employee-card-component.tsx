@@ -24,6 +24,9 @@ const StyledListItem = styled.li`
   display: flex;
   justify-content: flex-start;
   box-shadow: 0px 1px 2px 0px #00000033;
+  @media (max-width: 768px) {
+    display:none;
+  }
 `;
 
 const StyledImage = styled.img`
