@@ -10,7 +10,7 @@ const EmployeeCard: React.FC<{ employee: Employee }> = ({ employee }) => {
             <ContainerImg>
                 <StyledImage src={employee.image} alt={employee.name} />
             </ContainerImg>
-            <Text>{employee.name}</Text>
+            <Name>{employee.name}</Name>
             <Text>{employee.job}</Text>
             <Text>{formatDate(employee.admission_date)}</Text>
             <Text>{formatPhone(employee.phone)}</Text>
@@ -36,7 +36,7 @@ const StyledImage = styled.img`
 
 const Text = styled.h3`
   color: black;
-  width: 22%; 
+  width: 20%; 
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -51,5 +51,12 @@ const ContainerImg = styled.div`
   align-items: center;
 `;
 
+const Name = styled.h3`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: black;
+    width: 28%;
+`;
 
 

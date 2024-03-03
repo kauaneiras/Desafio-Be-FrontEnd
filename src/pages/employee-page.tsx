@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Container } from '../styles/base.tsx';
 import { getData, employees } from '../services/connection.tsx';
 import Navbar from '../components/navbar-component.tsx';
+import SearchBar from '../components/searchbar-component.tsx';
 import { Employee } from '../interfaces/employee-interface.tsx';
 import EmployeeTitles from '../components/employee-titles-component.tsx';
 import EmployerCard from '../components/employee-card-component.tsx';
@@ -22,14 +23,17 @@ const EmployerPage: React.FC = () => {
   return (
     <Container>
       <Navbar />
-      <StyledContent>
-        <EmployeeTitles />
-        <StyledList>
-          {data.map((employee) => (
-            <EmployerCard key={employee.id} employee={employee} />
-          ))}
-        </StyledList>
-      </StyledContent>
+      <SearchBar />
+      <Content>
+        <StyledContent>
+          <EmployeeTitles />
+          <StyledList>
+            {data.map((employee) => (
+              <EmployerCard key={employee.id} employee={employee} />
+            ))}
+          </StyledList>
+        </StyledContent>
+      </Content>
     </Container>
   );
 };
@@ -38,13 +42,20 @@ const EmployerPage: React.FC = () => {
 export default EmployerPage;
 
 
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+  width: 95%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+`;
+
 const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  width: 95%;
+  width: 100%;
   overflow-y: auto;
   background-color: white;
 

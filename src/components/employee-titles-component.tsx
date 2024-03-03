@@ -5,7 +5,7 @@ const EmployeeTitles: React.FC = () => {
     return (
         <Titles>
             <Photo>FOTO</Photo>
-            <Title>NOME</Title>
+            <Name>NOME</Name>
             <Title>CARGO</Title>
             <Title>DATA DE ADMISSÃO</Title>
             <Title>TELEFONE</Title>
@@ -30,7 +30,7 @@ const Title = styled.h2`
     align-items: center;
     justify-content: flex-start;
     color: white;
-    width: 22%;
+    width: 20%;
 `;
 
 const Photo = styled.h2`
@@ -40,6 +40,14 @@ const Photo = styled.h2`
     width: 12%;
     justify-content: center;
     align-items: center;
+`;
+
+const Name = styled.h2`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    width: 28%;
 `;
 
 
